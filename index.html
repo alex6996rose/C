@@ -159,12 +159,16 @@ function render(){
  let y=currentDate.getFullYear(),m=currentDate.getMonth();
  const months=['ЯНВАРЬ','ФЕВРАЛЬ','МАРТ','АПРЕЛЬ','МАЙ','ИЮНЬ','ИЮЛЬ','АВГУСТ','СЕНТЯБРЬ','ОКТЯБРЬ','НОЯБРЬ','ДЕКАБРЬ'];
  document.getElementById('monthTitle').textContent=months[m];
- let days=new Date(y,m+1,0).getDate();
- cal.innerHTML='';
+let days=new Date(y,m+1,0).getDate();
+cal.innerHTML='';
 
- let totalCells=Math.ceil(days/7)*7;
+// смещение первого дня месяца
+let firstDay=new Date(y,m,1).getDay();
+firstDay=(firstDay+6)%7; // переводим: ПН=0 ... ВС=6
 
- for(let d=1;d<=totalCells;d++){
+let totalCells=Math.ceil((days+firstDay)/7)*7;
+
+for(let d=1-firstDay;d<=totalCells-firstDay;d++){
   let isNextMonth=d>days;
   let cellDate=new Date(y,m,d);
   let dayNum=cellDate.getDate();
