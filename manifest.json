@@ -1,0 +1,12 @@
+{
+  "name": "Календарь Alex",
+  "short_name": "Календарь",
+  "description": "Личный календарь задач",
+  "display": "standalone",
+  "start_url": "./",
+  "scope": "./",
+  "background_color": "#f2eee6",
+  "theme_color": "#95CE67",
+  "orientation": "portrait",
+  "lang": "ru"
+}
